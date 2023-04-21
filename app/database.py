@@ -24,6 +24,15 @@ def fetch_todo() -> dict:
     return todo_list
 
 
+# assignment 3
+def update_status_entry(task_id:int, status:str):
+    cursor = postgres.cursor()
+    query = "Update tasks set status = '{}' where id = {};".format(status, task_id)
+    cursor.execute(query)
+    postgres.commit()
+    cursor.close()
+
+
 """Assignment 2
     Updates task description based on given `task_id`
     Args:
@@ -36,7 +45,7 @@ def fetch_todo() -> dict:
 
 def update_task_entry(task_id: int , text: str):
     cursor = postgres.cursor()
-    query = "Update tasks set task = '{}' where id = {};".format(text,task_id)
+    query = "Update tasks set task = '{}' where id = {};".format(text, task_id)
     cursor.execute(query)
     postgres.commit()
     cursor.close()

@@ -30,7 +30,7 @@ def update_status(task_id):
             result = {'success': True, 'response': 'Nothing Updated'}
     except:
         result = {'success': False, 'response': 'Something went wrong'}
-
+    
     return jsonify(result)
 
 
@@ -51,6 +51,16 @@ def create():
 def fetch_max_id():
     data = request.get_json()
     result= db_helper.fetch_max_id()
+    return jsonify(result)
+
+
+@app.route("/edit", methods=['POST'])
+def edit():
+    """ recieves post requests to add new task """
+    data = request.get_json()
+    print(data)
+    db_helper.update_task_entry(data['id'], data['description'])
+    result = {'success': True, 'response': 'Done'}
     return jsonify(result)
 
 

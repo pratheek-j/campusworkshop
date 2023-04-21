@@ -64,7 +64,29 @@ $(document).ready(function () {
        
     });
     
+    $('#edit-task-btn').click(function () {
+        const tID = $('#task-form-display').attr('taskID');
+        console.log($('#edit-task-modal').find('.form-control').val())
 
+                $.ajax({
+                    type: 'POST',
+                    url: '/edit',
+                    contentType: 'application/json;charset=UTF-8',
+                    data: JSON.stringify({
+                        'id': tID,
+                        'description': $('#edit-task-modal').find('.form-control').val()
+                    }),
+                    success: function (res) {
+                        console.log(res.response)
+                        location.reload();
+                    },
+                    error: function () {
+                        console.log('Error');
+                    }
+                });
+
+        });
+    
    
     
     
@@ -91,6 +113,9 @@ $(document).ready(function () {
 
         if (state.text() === "Todo") {
             new_state = "In Progress"
+        }
+        else {
+            new_state = "Completed"
         }
        
         console.log(new_state)
