@@ -1,4 +1,6 @@
 dpg-ch12vaj3cv203bugkcbg-a.oregon-postgres.render.com
 pass : AUOPnkzwjV4VXXqweK775pIN00Gdk2ri
 db name : todo_app_n5ir
-username: todo_app_n5ir_user
+username: 
+
+https://todo-app-lm2j.onrender.com
