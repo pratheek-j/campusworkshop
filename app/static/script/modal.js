@@ -114,6 +114,7 @@ $(document).ready(function () {
         if (state.text() === "Todo") {
             new_state = "In Progress"
         }
+        
         else {
             new_state = "Completed"
         }
